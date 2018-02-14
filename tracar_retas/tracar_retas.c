@@ -1,4 +1,5 @@
 #include <GL/glut.h>
+#include <stdio.h>
 
 int xi = 0, yi = 0, xf = 0, yf = 0, win;
 GLint view_w, view_h;
@@ -71,6 +72,10 @@ void GerenciaMouse(int button, int state, int x, int y){
         xf = ((2 * win * x) / view_w) - win;
         yf = (((2 * win) * (y - view_h)) / -view_h) - win;
         glutPostRedisplay();
+        //Coeficiente angular
+        float CA = (yf-yi / xf-xi);
+        printf("COEFICIENTE ANGULAR ENTRE OS PONTOS ");
+        printf("X(%d, %d) e Y(%d, %d) EH: %f\n", xi, xf, yi, yf, CA);
     }
     
 }
